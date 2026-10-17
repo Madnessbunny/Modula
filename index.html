@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modula - Construção Inteligente e Realidade Virtual</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        :root{
+            --primary-accent: #0dcaf0; /* Texto Ciano */
+        }
+
+        body{
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #0f1115;
+        }
+
+        .text-accent{
+            color: var(--primary-accent) !important;
+        }
+
+        .bg-accent{
+            background-color: var(--primary-accent) !important;
+            color: #000 !important;
+        }
+
+        /* Seção Heroi */
+        .Hero-Section{
+            background: linear-gradient(135deg,#0f1115 0%, #1a1e29 50%, #0d1e2b 100%);
+            padding: 100px 0;
+            border-bottom: 1px solid #2a2e39;
+        }
+
+        /* Seçoes e Cards */
+        .feature-box{
+            background-color: #1a1e25;
+            border: 1px solid #2a2e39;
+            border-radius: 12px;
+            padding: 30px;
+            height: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-box:hover{
+            transform: translateY(-5px);
+            border-color: var(--primary-accent);
+        }
+
+        .icon-large{
+            font-size: 3rem;
+            color: var(--primary-accent);
+            margin-bottom: 20px;
+        }
+        /* Banner de Disclaimer */
+        .prototype-banner {
+            background-color: #ffc107;
+            color: #000;
+            text-align: center;
+            padding: 8px 0;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Disclaimer -->
+    <!-- <div class="prototype-banner">
+        ⚠️ AVISO: A Modula é um projeto em desenvolvimento. Esta página é apenas um protótipo funcional.
+    </div> -->
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" style="background-color: rgba(15, 17, 21, 0.9) !important; backdrop-filter: blur(10px);">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3 text-accent" href="#">
+                <i class="bi bi-box-fill me-2"></i>Modula
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-togle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experiencia-vr">Experiencia VR</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#como-funciona">Como Funciona</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-info ms-lg-3 mt-2 mt-lg-0" href="#lista-espera">Lista de Espera</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Seção Heroi -->
+    <section class="hero-section text-accent text-lg-start">
+        <div class="container">
+            <div class="row align-items-center min-vh-50 py-5">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    
+                    <h1 class="display-4 fw-bold lh-sm mb-4">
+                        Construa como Lego. <br>
+                        <span class="text-accent">Viva em Realidade Virtual antes.</span>
+                    </h1>
+                    <p class="lead text-secondary mb-4">
+                        A Modula une a velocidade da construção modular inteligente com a imersão total dos óculos VR. Personalize cores, acabamentos e layout em escala real, antes do primeiro bloco ser encaixado.
+                    </p>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                        <a href="#lista-espera" class="btn btn-info btn-lg px-4 me-md-2 fw-bold text-dark">Garantir Acesso Antecipado</a>
+                        <a href="#experiencia-vr" class="btn btn-outline-light btn-lg px-4">Descobrir a Tecnologia</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <!-- Representação Visual -->
+                    <div class="p-5 bg-dark border border-secondary rounded-4 shadow-lg position-relative overflow-hidden" style="min-height: 350px; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                        <i class="bi bi-headset-vr display-1 text-accent mb-3" style="font-size: 5rem;"></i>
+                        <h3 class="fw-bold">Ambiente VR Pronto</h3>
+                        <p class="text-muted">Simulação interativa 1:1</p>
+
+                        <!-- Elemento decorativo simulando grid de realidade virtual -->
+                        <div class="position-absolute top-0 start-0 w-100 h-100" style="background-image: linear-gradient(#0dcaf0 1px, transparent 1px), linear-gradient(90deg, #0dcaf0 1px, transparent 1px); background-size: 40px 40px; opacity: 0.05; pointer-events: none;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção: Experiência VR + Sistema Modular -->
+    <section id="experiencia-vr" class="py-5" style="background-color: #12151b;">
+        <div class="container py-5">
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-8">
+                    <h2 class="fw-bold h1">Do projeto em VR para a <span class="text-accent">montagem modular</span></h2>
+                    <p class="lead text-secondary mt-3">Combinamos a imersão da realidade virtual com a precisão do sistema construtivo autoblocante.</p>
+                </div>
+            </div>
+
+            <div class="row g-4 align-items-stretch">
+                <!-- Coluna Esquerda: Experiência VR -->
+                <div class="col-md-5">
+                    <div class="feature-box h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <span class="badge bg-dark border border-info text-info mb-3 px-3 py-2">Fase 1: Design Virtual</span>
+                            <h3 class="fw-bold mb-4">Experiência Imersiva VR</h3>
+
+                            <div class="mb-4">
+                                <h5 class="fw-bold text-accent"><i class="bi bi-badge-vr me-2"></i>Escala Real </h5>
+                                <p class="text-secondary small">Coloque o óculos VR e caminhe pelos cômodos. Sinta o tamanho da sala, a altura do teto e a iluminação antes de aprovar.</p>
+                            </div>
+
+                            <div class="mb-4">
+                                <h5 class="fw-bold text-accent"><i class="bi bi-palette me-2"></i>Personalização Instantânea</h5>
+                                <p class="text-secondary small">Alterne cores das paredes, tipos de piso, janelas e layout com cliques simples nos controles virtuais.</p>
+                            </div>
+
+                            <div>
+                                <h5 class="fw-bold text-accent"><i class="bi bi-shield-check me-2"></i>Zero Surpresas</h5>
+                                <p class="text-secondary small">Valide cada detalhe do ambiente antes da fabricação dos blocos, evitando reformas de última hora.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coluna Direita: O Sistema de Blocos (Gablok) -->
+                <div class="col-md-7">
+                    <div class="feature-box h-100">
+                        <span class="badge bg-dark border border-warning text-warning mb-3 px-3 py-2">Fase 2: Engenharia</span>
+                        <h3 class="fw-bold mb-4">O Sistema de Blocos (Gablok)</h3>
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="p-3 bg-dark border border-secondary rounded-3 h-100">
+                                    <i class="bi bi-puzzle text-accent fs-3 mb-2 d-block"></i>
+                                    <h5 class="fw-bold fs-6 text-light">Encaixe Autoblocante</h5>
+                                    <p class="text-secondary small mb-0">Blocos leves de OSB e EPS que se travam com precisão mecânica, dispensando o uso de argamassa no travamento estrutural.</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="p-3 bg-dark border border-secondary rounded-3 h-100">
+                                    <i class="bi bi-thermometer-half text-accent fs-3 mb-2 d-block"></i>
+                                    <h5 class="fw-bold fs-6 text-light">Isolamento Térmico e Acústico</h5>
+                                    <p class="text-secondary small mb-0">O núcleo isolante de EPS ultra-denso garante alto conforto térmico e reduz o consumo de energia com ar-condicionado.</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="p-3 bg-dark border border-secondary rounded-3 h-100">
+                                    <i class="bi bi-stopwatch text-accent fs-3 mb-2 d-block"></i>
+                                    <h5 class="fw-bold fs-6 text-light">Montagem Ultra-Rápida</h5>
+                                    <p class="text-secondary small mb-0">A estrutura bruta é erguida em poucos dias por equipes reduzidas, sem tempo de secagem ou etapas complexas.</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="p-3 bg-dark border border-secondary rounded-3 h-100">
+                                    <i class="bi bi-tree text-accent fs-3 mb-2 d-block"></i>
+                                    <h5 class="fw-bold fs-6 text-light">Obra Limpa e Sustentável</h5>
+                                    <p class="text-secondary small mb-0">Sem desperdício de materiais no canteiro, consumo nulo de água na montagem estrutural e baixíssima geração de entulho.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Como Funciona Section -->
+    <section id="como-funciona" class="py-5">
+        <div class="container py-5">
+            <h2 class="fw-bold h1 text-center mb-5">Como a <span class="text-accent">Modula</span> Funciona</h2>
+
+            <div class="row align-items-center mb-4">
+                <div class="col-auto">
+                    <div class="bg-accent rounded-circle text-dark d-flex align-items-center justify-content-center fw-bold fs-4" style="width: 60px; height: 60px;">1</div>
+                </div>
+                <div class="col">
+                    <h4 class="fw-bold mb-1">Escolha o Molde</h4>
+                    <p class="text-secondary mb-0">Selecione um design base no nosso catálogo digital inteligente.</p>
+                </div>
+            </div>
+
+            <div class="row align-items-center mb-4">
+                <div class="col-auto">
+                    <div class="bg-accent rounded-circle text-dark d-flex align-items-center justify-content-center fw-bold fs-4" style="width: 60px; height: 60px;">2</div>
+                </div>
+                <div class="col">
+                    <h4 class="fw-bold mb-1">Veste os Óculos VR</h4>
+                    <p class="text-secondary mb-0">Visite nosso escritório, receba o headset. Entre no projeto, faça ajustes no layout e escolha os acabamentos vivenciando o espaço.</p>
+                </div>
+            </div>
+
+            <div class="row align-items-center">
+                <div class="col-auto">
+                    <div class="bg-accent rounded-circle text-dark d-flex align-items-center justify-content-center fw-bold fs-4" style="width: 60px; height: 60px;">3</div>
+                </div>
+                <div class="col">
+                    <h4 class="fw-bold mb-1">Montagem Expressa</h4>
+                    <p class="text-secondary mb-0">O sistema modular converte sua escolha no VR diretamente para os blocos estruturais. A casa é erguida em questão de semanas, sem entulho ou desperdício.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lista de Espera Section -->
+    <section id="lista-espera" class="py-5 bg-dark">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6">
+                    <div class="card bg-black border-secondary shadow-lg">
+                        <div class="card-body p-5">
+                            <div class="text-center mb-4">
+                                <i class="bi bi-rocket-takeoff text-accent display-4"></i>
+                                <h3 class="fw-bold mt-3">Seja um dos primeiros</h3>
+                                <p class="text-secondary">O projeto Modula está em desenvolvimento. Inscreva-se na lista de espera para ser o primeiro a testar nossa tecnologia de VR.</p>
+                            </div>
+                            <form>
+                                <div class="mb-3">
+                                    <label for="nomeInput" class="form-label text-light">Nome Completo</label>
+                                    <input type="text" class="form-control bg-dark text-light border-secondary" id="nomeInput" placeholder="João da Silva" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="emailInput" class="form-label text-light">E-mail</label>
+                                    <input type="email" class="form-control bg-dark text-light border-secondary" id="emailInput" placeholder="joao@exemplo.com" required>
+                                </div>
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-info btn-lg fw-bold text-dark">Quero entrar na lista</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4 text-center border-top border-secondary" style="background-color: #0f1115;">
+        <div class="container">
+            <h5 class="fw-bold text-light mb-1"><i class="bi bi-box-fill text-accent me-2"></i>Modula PropTech</h5>
+            <p class="text-secondary small mb-0">&copy; 2026 Modula. Todos os direitos reservados.</p>
+            <!-- <p class="text-muted small mt-2">
+                <em>* Este é um projeto em fase inicial (protótipo). Produto ainda não disponível para comercialização.</em>
+            </p> -->
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
