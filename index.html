@@ -5,126 +5,256 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modula - Construção Inteligente e Realidade Virtual</title>
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <style>
-        :root{
-            --primary-accent: #0dcaf0; /* Texto Ciano */
+        :root {
+            --primary-accent: #0dcaf0; /* Ciano Elétrico */
+            --primary-glow: rgba(13, 202, 240, 0.25);
+            --bg-dark: #090b0e;
+            --bg-card: #131720;
+            --bg-card-hover: #1a202c;
+            --border-color: #262e3d;
+            --text-muted: #94a3b8;
         }
 
-        body{
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #0f1115;
+        body {
+            font-family: 'Plus Jakarta Sans', 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-dark);
+            color: #f8fafc;
+            overflow-x: hidden;
         }
 
-        .text-accent{
+        /* Utilidades de Acento */
+        .text-accent {
             color: var(--primary-accent) !important;
         }
 
-        .bg-accent{
+        .bg-accent {
             background-color: var(--primary-accent) !important;
             color: #000 !important;
         }
 
-        /* Seção Heroi */
-        .Hero-Section{
-            background: linear-gradient(135deg,#0f1115 0%, #1a1e29 50%, #0d1e2b 100%);
-            padding: 100px 0;
-            border-bottom: 1px solid #2a2e39;
+        /* Navbar Glassmorphism */
+        .custom-navbar {
+            background-color: rgba(9, 11, 14, 0.8) !important;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
         }
 
-        /* Seçoes e Cards */
-        .feature-box{
-            background-color: #1a1e25;
-            border: 1px solid #2a2e39;
-            border-radius: 12px;
-            padding: 30px;
-            height: 100%;
-            transition: transform 0.3s ease;
+        .nav-link {
+            color: #cbd5e1 !important;
+            font-weight: 500;
+            transition: color 0.2s ease;
         }
 
-        .feature-box:hover{
-            transform: translateY(-5px);
+        .nav-link:hover {
+            color: var(--primary-accent) !important;
+        }
+
+        /* Seção Herói (Corrigido case e aplicação de estilos) */
+        .hero-section {
+            background: radial-gradient(circle at 80% 20%, rgba(13, 202, 240, 0.12) 0%, transparent 40%),
+                        linear-gradient(180deg, var(--bg-dark) 0%, #0e131d 100%);
+            padding: 120px 0 80px 0;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        /* Botão Glow Customizado */
+        .btn-accent {
+            background-color: var(--primary-accent);
+            color: #000;
+            font-weight: 700;
+            border: none;
+            box-shadow: 0 0 20px var(--primary-glow);
+            transition: all 0.3s ease;
+        }
+
+        .btn-accent:hover {
+            background-color: #31d2f2;
+            color: #000;
+            box-shadow: 0 0 30px rgba(13, 202, 240, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-custom {
+            border: 1px solid var(--border-color);
+            color: #f8fafc;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-custom:hover {
             border-color: var(--primary-accent);
+            color: var(--primary-accent);
+            background: rgba(13, 202, 240, 0.05);
         }
 
-        .icon-large{
-            font-size: 3rem;
-            color: var(--primary-accent);
-            margin-bottom: 20px;
+        /* Seções e Cards Modernos */
+        .feature-box {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 32px;
+            height: 100%;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
         }
+
+        .feature-box:hover {
+            transform: translateY(-6px);
+            background-color: var(--bg-card-hover);
+            border-color: rgba(13, 202, 240, 0.4);
+            box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(13, 202, 240, 0.1);
+        }
+
+        /* Sub-cards de recursos */
+        .sub-feature-card {
+            background-color: rgba(15, 20, 28, 0.7);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            transition: border-color 0.3s ease;
+        }
+
+        .sub-feature-card:hover {
+            border-color: rgba(13, 202, 240, 0.3);
+        }
+
         /* Banner de Disclaimer */
         .prototype-banner {
-            background-color: #ffc107;
+            background: linear-gradient(90deg, #ffc107 0%, #ff9800 100%);
             color: #000;
             text-align: center;
             padding: 8px 0;
             font-size: 0.85rem;
-            font-weight: bold;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        /* Círculos dos Passos */
+        .step-number {
+            background: linear-gradient(135deg, var(--primary-accent) 0%, #0088a9 100%);
+            color: #000;
+            font-weight: 800;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px var(--primary-glow);
+            flex-shrink: 0;
+        }
+
+        /* Form Inputs Modernos */
+        .form-control-custom {
+            background-color: rgba(15, 20, 28, 0.8) !important;
+            border: 1px solid var(--border-color) !important;
+            color: #fff !important;
+            padding: 12px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control-custom:focus {
+            border-color: var(--primary-accent) !important;
+            box-shadow: 0 0 12px var(--primary-glow) !important;
+        }
+
+        .form-control-custom::placeholder {
+            color: #64748b;
+        }
+
+        /* VR Box Animation */
+        .vr-box-preview {
+            background: radial-gradient(circle at center, #1a2332 0%, #0f141d 100%);
+            border: 1px solid rgba(13, 202, 240, 0.3) !important;
+            box-shadow: 0 0 40px rgba(0,0,0,0.8), inset 0 0 20px rgba(13, 202, 240, 0.05);
+        }
+
+        .pulse-icon {
+            animation: pulseGlow 3s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(13, 202, 240, 0.4)); }
+            100% { transform: scale(1.05); filter: drop-shadow(0 0 25px rgba(13, 202, 240, 0.8)); }
         }
     </style>
 </head>
 <body>
-    <!-- Disclaimer -->
-    <!-- <div class="prototype-banner">
-        ⚠️ AVISO: A Modula é um projeto em desenvolvimento. Esta página é apenas um protótipo funcional.
-    </div> -->
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" style="background-color: rgba(15, 17, 21, 0.9) !important; backdrop-filter: blur(10px);">
+    <!-- Disclaimer Banner opcional -->
+    <div class="prototype-banner">
+        ⚠️ PROJETO PROTÓTIPO: A Modula é uma solução em desenvolvimento conceitual e tecnológico.
+    </div>
+
+    <!-- Navbar Corrigida e Estilizada -->
+    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar sticky-top">
         <div class="container">
-            <a class="navbar-brand fw-bold fs-3 text-accent" href="#">
-                <i class="bi bi-box-fill me-2"></i>Modula
+            <a class="navbar-brand fw-bold fs-3 text-accent d-flex align-items-center" href="#">
+                <i class="bi bi-box-fill me-2 fs-2"></i>Modula
             </a>
-            <button class="navbar-toggler" type="button" data-bs-togle="collapse" data-bs-target="#navbarNav">
+            <!-- Corrigido: data-bs-toggle -->
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
                     <li class="nav-item">
-                        <a class="nav-link" href="#experiencia-vr">Experiencia VR</a>
+                        <a class="nav-link px-3" href="#experiencia-vr">Experiência VR</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#como-funciona">Como Funciona</a>
+                        <a class="nav-link px-3" href="#como-funciona">Como Funciona</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="btn btn-outline-info ms-lg-3 mt-2 mt-lg-0" href="#lista-espera">Lista de Espera</a>
+                    <li class="nav-item ms-lg-2">
+                        <a class="btn btn-accent px-4 py-2 mt-2 mt-lg-0 rounded-pill fs-6" href="#lista-espera">Lista de Espera</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Seção Heroi -->
-    <section class="hero-section text-accent text-lg-start">
+    <!-- Seção Herói Corrigida (removido text-accent global) -->
+    <section class="hero-section text-light">
         <div class="container">
-            <div class="row align-items-center min-vh-50 py-5">
+            <div class="row align-items-center min-vh-50 py-4">
                 <div class="col-lg-6 mb-5 mb-lg-0">
-                    
-                    <h1 class="display-4 fw-bold lh-sm mb-4">
+                    <span class="badge bg-dark border border-info text-accent mb-3 px-3 py-2 rounded-pill">
+                        <i class="bi bi-lightning-charge-fill me-1"></i> A Nova Era da Construção Civil
+                    </span>
+                    <h1 class="display-4 fw-extrabold lh-sm mb-4">
                         Construa como Lego. <br>
-                        <span class="text-accent">Viva em Realidade Virtual antes.</span>
+                        <span class="text-accent">Viva em VR antes de erguer.</span>
                     </h1>
-                    <p class="lead text-secondary mb-4">
-                        A Modula une a velocidade da construção modular inteligente com a imersão total dos óculos VR. Personalize cores, acabamentos e layout em escala real, antes do primeiro bloco ser encaixado.
+                    <p class="lead text-secondary mb-4 fs-5" style="color: #94a3b8 !important;">
+                        A Modula une a velocidade da construção modular inteligente com a imersão total dos óculos VR. Personalize cores, acabamentos e layout em escala real antes do primeiro bloco ser encaixado.
                     </p>
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                        <a href="#lista-espera" class="btn btn-info btn-lg px-4 me-md-2 fw-bold text-dark">Garantir Acesso Antecipado</a>
-                        <a href="#experiencia-vr" class="btn btn-outline-light btn-lg px-4">Descobrir a Tecnologia</a>
+                    <div class="d-grid gap-3 d-md-flex justify-content-md-start">
+                        <a href="#lista-espera" class="btn btn-accent btn-lg px-4 fw-bold">Garantir Acesso Antecipado</a>
+                        <a href="#experiencia-vr" class="btn btn-outline-custom btn-lg px-4">Descobrir a Tecnologia</a>
                     </div>
                 </div>
                 <div class="col-lg-6 text-center">
-                    <!-- Representação Visual -->
-                    <div class="p-5 bg-dark border border-secondary rounded-4 shadow-lg position-relative overflow-hidden" style="min-height: 350px; display: flex; align-items: center; justify-content: center; flex-direction: column;">
-                        <i class="bi bi-headset-vr display-1 text-accent mb-3" style="font-size: 5rem;"></i>
-                        <h3 class="fw-bold">Ambiente VR Pronto</h3>
-                        <p class="text-muted">Simulação interativa 1:1</p>
+                    <!-- Representação Visual em VR -->
+                    <div class="p-5 vr-box-preview rounded-4 position-relative overflow-hidden">
+                        <i class="bi bi-headset-vr display-1 text-accent mb-3 d-block pulse-icon" style="font-size: 5.5rem;"></i>
+                        <h3 class="fw-bold text-white mb-1">Ambiente VR Pronto</h3>
+                        <p class="text-secondary small mb-0">Simulação interativa 1:1 em tempo real</p>
 
-                        <!-- Elemento decorativo simulando grid de realidade virtual -->
-                        <div class="position-absolute top-0 start-0 w-100 h-100" style="background-image: linear-gradient(#0dcaf0 1px, transparent 1px), linear-gradient(90deg, #0dcaf0 1px, transparent 1px); background-size: 40px 40px; opacity: 0.05; pointer-events: none;">
+                        <!-- Elemento decorativo simulando grid VR -->
+                        <div class="position-absolute top-0 start-0 w-100 h-100" style="background-image: linear-gradient(#0dcaf0 1px, transparent 1px), linear-gradient(90deg, #0dcaf0 1px, transparent 1px); background-size: 32px 32px; opacity: 0.08; pointer-events: none;">
                         </div>
                     </div>
                 </div>
@@ -133,77 +263,83 @@
     </section>
 
     <!-- Seção: Experiência VR + Sistema Modular -->
-    <section id="experiencia-vr" class="py-5" style="background-color: #12151b;">
+    <section id="experiencia-vr" class="py-5" style="background-color: #0c0f15;">
         <div class="container py-5">
             <div class="row justify-content-center text-center mb-5">
                 <div class="col-lg-8">
-                    <h2 class="fw-bold h1">Do projeto em VR para a <span class="text-accent">montagem modular</span></h2>
-                    <p class="lead text-secondary mt-3">Combinamos a imersão da realidade virtual com a precisão do sistema construtivo autoblocante.</p>
+                    <h2 class="fw-bold display-6">Do projeto em VR para a <span class="text-accent">montagem modular</span></h2>
+                    <p class="lead text-secondary mt-3 fs-6">Combinamos a imersão da realidade virtual com a precisão do sistema construtivo autoblocante.</p>
                 </div>
             </div>
 
             <div class="row g-4 align-items-stretch">
                 <!-- Coluna Esquerda: Experiência VR -->
-                <div class="col-md-5">
-                    <div class="feature-box h-100 d-flex flex-column justify-content-between">
+                <div class="col-lg-5">
+                    <div class="feature-box d-flex flex-column justify-content-between">
                         <div>
-                            <span class="badge bg-dark border border-info text-info mb-3 px-3 py-2">Fase 1: Design Virtual</span>
-                            <h3 class="fw-bold mb-4">Experiência Imersiva VR</h3>
+                            <span class="badge bg-dark border border-info text-accent mb-3 px-3 py-2 rounded-pill">Fase 1: Design Virtual</span>
+                            <h3 class="fw-bold mb-4 text-white">Experiência Imersiva VR</h3>
 
                             <div class="mb-4">
-                                <h5 class="fw-bold text-accent"><i class="bi bi-badge-vr me-2"></i>Escala Real </h5>
+                                <h5 class="fw-bold text-accent d-flex align-items-center">
+                                    <i class="bi bi-badge-vr me-2 fs-4"></i>Escala Real 1:1
+                                </h5>
                                 <p class="text-secondary small">Coloque o óculos VR e caminhe pelos cômodos. Sinta o tamanho da sala, a altura do teto e a iluminação antes de aprovar.</p>
                             </div>
 
                             <div class="mb-4">
-                                <h5 class="fw-bold text-accent"><i class="bi bi-palette me-2"></i>Personalização Instantânea</h5>
+                                <h5 class="fw-bold text-accent d-flex align-items-center">
+                                    <i class="bi bi-palette me-2 fs-4"></i>Personalização Instantânea
+                                </h5>
                                 <p class="text-secondary small">Alterne cores das paredes, tipos de piso, janelas e layout com cliques simples nos controles virtuais.</p>
                             </div>
 
                             <div>
-                                <h5 class="fw-bold text-accent"><i class="bi bi-shield-check me-2"></i>Zero Surpresas</h5>
+                                <h5 class="fw-bold text-accent d-flex align-items-center">
+                                    <i class="bi bi-shield-check me-2 fs-4"></i>Zero Surpresas
+                                </h5>
                                 <p class="text-secondary small">Valide cada detalhe do ambiente antes da fabricação dos blocos, evitando reformas de última hora.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Coluna Direita: O Sistema de Blocos (Gablok) -->
-                <div class="col-md-7">
-                    <div class="feature-box h-100">
-                        <span class="badge bg-dark border border-warning text-warning mb-3 px-3 py-2">Fase 2: Engenharia</span>
-                        <h3 class="fw-bold mb-4">O Sistema de Blocos (Gablok)</h3>
+                <!-- Coluna Direita: O Sistema de Blocos -->
+                <div class="col-lg-7">
+                    <div class="feature-box">
+                        <span class="badge bg-dark border border-warning text-warning mb-3 px-3 py-2 rounded-pill">Fase 2: Engenharia</span>
+                        <h3 class="fw-bold mb-4 text-white">O Sistema de Blocos Autoblocantes</h3>
 
                         <div class="row g-3">
                             <div class="col-md-6">
-                                <div class="p-3 bg-dark border border-secondary rounded-3 h-100">
-                                    <i class="bi bi-puzzle text-accent fs-3 mb-2 d-block"></i>
-                                    <h5 class="fw-bold fs-6 text-light">Encaixe Autoblocante</h5>
-                                    <p class="text-secondary small mb-0">Blocos leves de OSB e EPS que se travam com precisão mecânica, dispensando o uso de argamassa no travamento estrutural.</p>
+                                <div class="p-3 sub-feature-card h-100">
+                                    <i class="bi bi-puzzle text-accent fs-2 mb-2 d-block"></i>
+                                    <h5 class="fw-bold fs-6 text-light mb-2">Encaixe Autoblocante</h5>
+                                    <p class="text-secondary small mb-0">Blocos leves de OSB e EPS que se travam com precisão mecânica, dispensando argamassa no travamento estrutural.</p>
                                 </div>
                             </div>
 
                             <div class="col-md-6">
-                                <div class="p-3 bg-dark border border-secondary rounded-3 h-100">
-                                    <i class="bi bi-thermometer-half text-accent fs-3 mb-2 d-block"></i>
-                                    <h5 class="fw-bold fs-6 text-light">Isolamento Térmico e Acústico</h5>
-                                    <p class="text-secondary small mb-0">O núcleo isolante de EPS ultra-denso garante alto conforto térmico e reduz o consumo de energia com ar-condicionado.</p>
+                                <div class="p-3 sub-feature-card h-100">
+                                    <i class="bi bi-thermometer-half text-accent fs-2 mb-2 d-block"></i>
+                                    <h5 class="fw-bold fs-6 text-light mb-2">Isolamento Térmico e Acústico</h5>
+                                    <p class="text-secondary small mb-0">Núcleo isolante de EPS ultra-denso garantindo alto conforto térmico e reduzindo consumo com ar-condicionado.</p>
                                 </div>
                             </div>
 
                             <div class="col-md-6">
-                                <div class="p-3 bg-dark border border-secondary rounded-3 h-100">
-                                    <i class="bi bi-stopwatch text-accent fs-3 mb-2 d-block"></i>
-                                    <h5 class="fw-bold fs-6 text-light">Montagem Ultra-Rápida</h5>
+                                <div class="p-3 sub-feature-card h-100">
+                                    <i class="bi bi-stopwatch text-accent fs-2 mb-2 d-block"></i>
+                                    <h5 class="fw-bold fs-6 text-light mb-2">Montagem Ultra-Rápida</h5>
                                     <p class="text-secondary small mb-0">A estrutura bruta é erguida em poucos dias por equipes reduzidas, sem tempo de secagem ou etapas complexas.</p>
                                 </div>
                             </div>
 
                             <div class="col-md-6">
-                                <div class="p-3 bg-dark border border-secondary rounded-3 h-100">
-                                    <i class="bi bi-tree text-accent fs-3 mb-2 d-block"></i>
-                                    <h5 class="fw-bold fs-6 text-light">Obra Limpa e Sustentável</h5>
-                                    <p class="text-secondary small mb-0">Sem desperdício de materiais no canteiro, consumo nulo de água na montagem estrutural e baixíssima geração de entulho.</p>
+                                <div class="p-3 sub-feature-card h-100">
+                                    <i class="bi bi-tree text-accent fs-2 mb-2 d-block"></i>
+                                    <h5 class="fw-bold fs-6 text-light mb-2">Obra Limpa e Sustentável</h5>
+                                    <p class="text-secondary small mb-0">Zero desperdício no canteiro, consumo nulo de água na montagem estrutural e baixíssima geração de entulho.</p>
                                 </div>
                             </div>
                         </div>
@@ -214,67 +350,35 @@
     </section>
 
     <!-- Como Funciona Section -->
-    <section id="como-funciona" class="py-5">
+    <section id="como-funciona" class="py-5" style="background-color: var(--bg-dark);">
         <div class="container py-5">
-            <h2 class="fw-bold h1 text-center mb-5">Como a <span class="text-accent">Modula</span> Funciona</h2>
+            <h2 class="fw-bold display-6 text-center mb-5">Como a <span class="text-accent">Modula</span> Funciona</h2>
 
-            <div class="row align-items-center mb-4">
-                <div class="col-auto">
-                    <div class="bg-accent rounded-circle text-dark d-flex align-items-center justify-content-center fw-bold fs-4" style="width: 60px; height: 60px;">1</div>
-                </div>
-                <div class="col">
-                    <h4 class="fw-bold mb-1">Escolha o Molde</h4>
-                    <p class="text-secondary mb-0">Selecione um design base no nosso catálogo digital inteligente.</p>
-                </div>
-            </div>
-
-            <div class="row align-items-center mb-4">
-                <div class="col-auto">
-                    <div class="bg-accent rounded-circle text-dark d-flex align-items-center justify-content-center fw-bold fs-4" style="width: 60px; height: 60px;">2</div>
-                </div>
-                <div class="col">
-                    <h4 class="fw-bold mb-1">Veste os Óculos VR</h4>
-                    <p class="text-secondary mb-0">Visite nosso escritório, receba o headset. Entre no projeto, faça ajustes no layout e escolha os acabamentos vivenciando o espaço.</p>
-                </div>
-            </div>
-
-            <div class="row align-items-center">
-                <div class="col-auto">
-                    <div class="bg-accent rounded-circle text-dark d-flex align-items-center justify-content-center fw-bold fs-4" style="width: 60px; height: 60px;">3</div>
-                </div>
-                <div class="col">
-                    <h4 class="fw-bold mb-1">Montagem Expressa</h4>
-                    <p class="text-secondary mb-0">O sistema modular converte sua escolha no VR diretamente para os blocos estruturais. A casa é erguida em questão de semanas, sem entulho ou desperdício.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Lista de Espera Section -->
-    <section id="lista-espera" class="py-5 bg-dark">
-        <div class="container py-5">
-            <div class="row justify-content-center">
-                <div class="col-md-8 col-lg-6">
-                    <div class="card bg-black border-secondary shadow-lg">
-                        <div class="card-body p-5">
-                            <div class="text-center mb-4">
-                                <i class="bi bi-rocket-takeoff text-accent display-4"></i>
-                                <h3 class="fw-bold mt-3">Seja um dos primeiros</h3>
-                                <p class="text-secondary">O projeto Modula está em desenvolvimento. Inscreva-se na lista de espera para ser o primeiro a testar nossa tecnologia de VR.</p>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-10">
+                    <div class="d-flex flex-column gap-4">
+                        <div class="feature-box p-4 d-flex align-items-center">
+                            <div class="step-number me-4">1</div>
+                            <div>
+                                <h4 class="fw-bold mb-1 text-white">Escolha o Molde</h4>
+                                <p class="text-secondary mb-0">Selecione um design base no nosso catálogo digital inteligente de módulos arquitetônicos.</p>
                             </div>
-                            <form>
-                                <div class="mb-3">
-                                    <label for="nomeInput" class="form-label text-light">Nome Completo</label>
-                                    <input type="text" class="form-control bg-dark text-light border-secondary" id="nomeInput" placeholder="João da Silva" required>
-                                </div>
-                                <div class="mb-4">
-                                    <label for="emailInput" class="form-label text-light">E-mail</label>
-                                    <input type="email" class="form-control bg-dark text-light border-secondary" id="emailInput" placeholder="joao@exemplo.com" required>
-                                </div>
-                                <div class="d-grid">
-                                    <button type="submit" class="btn btn-info btn-lg fw-bold text-dark">Quero entrar na lista</button>
-                                </div>
-                            </form>
+                        </div>
+
+                        <div class="feature-box p-4 d-flex align-items-center">
+                            <div class="step-number me-4">2</div>
+                            <div>
+                                <h4 class="fw-bold mb-1 text-white">Vista os Óculos VR</h4>
+                                <p class="text-secondary mb-0">Visite nosso espaço, receba o headset, entre dentro do seu projeto, ajuste layouts e escolha acabamentos em tempo real.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-box p-4 d-flex align-items-center">
+                            <div class="step-number me-4">3</div>
+                            <div>
+                                <h4 class="fw-bold mb-1 text-white">Montagem Expressa</h4>
+                                <p class="text-secondary mb-0">O sistema modular converte sua aprovação VR em blocos prontos para montagem rápida na sua obra, sem estresse.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -282,14 +386,43 @@
         </div>
     </section>
 
+    <!-- Lista de Espera Section -->
+    <section id="lista-espera" class="py-5" style="background-color: #0a0d13;">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6">
+                    <div class="feature-box p-4 p-md-5">
+                        <div class="text-center mb-4">
+                            <i class="bi bi-rocket-takeoff text-accent display-4 mb-3 d-inline-block"></i>
+                            <h3 class="fw-bold text-white">Seja um dos primeiros</h3>
+                            <p class="text-secondary">Inscreva-se na lista de espera VIP para ter acesso antecipado ao protótipo e testar nossa experiência em VR.</p>
+                        </div>
+                        <form onsubmit="event.preventDefault(); alert('Inscrição realizada com sucesso!');">
+                            <div class="mb-3">
+                                <label for="nomeInput" class="form-label text-light fw-semibold">Nome Completo</label>
+                                <input type="text" class="form-control form-control-custom" id="nomeInput" placeholder="Ex: João da Silva" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="emailInput" class="form-label text-light fw-semibold">E-mail de contato</label>
+                                <input type="email" class="form-control form-control-custom" id="emailInput" placeholder="joao@exemplo.com" required>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-accent btn-lg fw-bold">Quero Acesso Antecipado</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
-    <footer class="py-4 text-center border-top border-secondary" style="background-color: #0f1115;">
+    <footer class="py-4 text-center border-top" style="border-color: var(--border-color) !important; background-color: var(--bg-dark);">
         <div class="container">
-            <h5 class="fw-bold text-light mb-1"><i class="bi bi-box-fill text-accent me-2"></i>Modula PropTech</h5>
+            <h5 class="fw-bold text-light mb-2 d-flex align-items-center justify-content-center">
+                <i class="bi bi-box-fill text-accent me-2"></i>Modula PropTech
+            </h5>
             <p class="text-secondary small mb-0">&copy; 2026 Modula. Todos os direitos reservados.</p>
-            <!-- <p class="text-muted small mt-2">
-                <em>* Este é um projeto em fase inicial (protótipo). Produto ainda não disponível para comercialização.</em>
-            </p> -->
         </div>
     </footer>
 
